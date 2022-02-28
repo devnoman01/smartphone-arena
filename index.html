@@ -28,11 +28,11 @@
     <!-- header end -->
 
     <!-- main start -->
-    <main>
+    <main class="">
         <!-- search section start -->
-        <section class="px-2">
+        <section>
             <div class="container-fluid mb-4">            
-                <div class="row search-section py-5">
+                <div class="row search-section px-2 py-5">
                     <div class="input-group input-part mx-auto">
                         <input id="search-field" type="search" class="form-control rounded" placeholder="Search phone" aria-label="Search" aria-describedby="search-addon" />
                         <button onclick="searchItem()" id="search-button" type="button" class="btn button">search</button>
@@ -42,11 +42,19 @@
         </section>
         <!-- search section end -->
 
+        <!-- onclick item details show section start -->
+        <section class="px-3" id="pop-up-section">
+            <div id="details-div" class="container rounded">
+
+            </div>
+        </section>
+        <!-- onclick item details show section end -->
+
         <!-- search result show section start -->
         <section class="px-2">
             <div class="container my-5">
                 <div id="content-div" class="row g-4 mb-5">
-                                        
+                    
                 </div>
             </div>
         </section>
@@ -57,11 +65,13 @@
 
     <!-- footer start -->
     <footer>
-        <div class="container py-4">
-            <div class="row py-2 text-center">
-                <span>All Right Reserved. &copy; <a href="https://github.com/devnoman01" target="_blank" class="text-decoration-none link-success"><b>devnoman01</b></a></span>
+        <section class="px-2">
+            <div class="container py-4">
+                <div class="row py-2 text-center border border-danger">
+                    <span>All Right Reserved. &copy; <a href="https://github.com/devnoman01" target="_blank" class="text-decoration-none link-success"><b>devnoman01</b></a></span>
+                </div>
             </div>
-        </div>
+        </section>
     </footer>
     <!-- footer end -->
     
