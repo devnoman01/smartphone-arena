@@ -13,6 +13,26 @@ body{
     background-color: #FDFAF6;
     font-family: 'Poppins', sans-serif;
 }
+h1{
+    color: #00695c;
+}
+
+/* main css */
+.search-section{
+    background-color: #E4EFE7;
+}
+.input-part{
+    width: 25rem;
+}
+.button{
+    color: #fff;
+    background-color: #00695c;
+}
+.button:hover{
+    background-color: #E4EFE7;
+    color: #00695c;
+    border: 1px solid #00695c;
+}
 
 
 /* footer css */
