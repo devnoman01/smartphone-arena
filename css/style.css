@@ -33,6 +33,9 @@ h1{
     color: #00695c;
     border: 1px solid #00695c;
 }
+.card{   
+    box-shadow: 0 0 15px -5px rgb(0 0 0 / 50%);
+}
 
 
 /* footer css */
