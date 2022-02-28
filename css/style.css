@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+/* font-family: 'Courgette', cursive; */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+/* font-family: 'Poppins', sans-serif; */
+
+/* common css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+body{
+    margin: 0 auto;
+    background-color: #FDFAF6;
+    font-family: 'Poppins', sans-serif;
+}
