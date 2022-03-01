@@ -1,11 +1,11 @@
-const toogleFunction = (id, value) => {
+const cssDisplayFunction = (id, value) => {
     document.getElementById(id).style.display = value;
 }
 
+// details display function
 const displayDetails = (info) => {
     
-    console.log(info.mainFeatures.sensors);
-    toogleFunction('spinner', 'none');
+    cssDisplayFunction('spinner', 'none');
     const parentDiv = document.getElementById('details-div');
     parentDiv.textContent = '';
     const div = document.createElement('div');
@@ -15,7 +15,7 @@ const displayDetails = (info) => {
             <img class="w-75" src="${info.image}" alt="">
         </div>
         <div class="col-md-8 col-sm-12">
-            <h4>${info.brand} ${info.name}</h4>
+            <h2>${info.brand} ${info.name}</h2>
             <small id="no-release-date">Release date not available</small>
             <small>${info.releaseDate}</small>
             <p class="fw-bold my-2">Main Feature:</p>
@@ -40,7 +40,6 @@ const displayDetails = (info) => {
                     
                     </div>
                 </div>
-
                 <div id="others-info" class="col-md-8 col-sm-12">
                     <p id="others-heading" class="fw-bold my-2">Others Information</p>
                     <div>
@@ -54,11 +53,12 @@ const displayDetails = (info) => {
     
     const sensorsInfoParent = document.getElementById('sensors-info');
     const othersInfoParent = document.getElementById('others-info');
-    toogleFunction('sensors-heading', 'none');
-    toogleFunction('others-heading', 'none');
+    cssDisplayFunction('sensors-heading', 'none');
+    cssDisplayFunction('others-heading', 'none');
+
+    // loading sensor information
     for(const sensor of info.mainFeatures.sensors){
-        toogleFunction('sensors-heading', 'block');
-        console.log(sensor);
+        cssDisplayFunction('sensors-heading', 'block');
         const small = document.createElement('small');
         small.innerHTML = `
         <i class="fa-solid fa-angle-right me-1"></i>
@@ -66,43 +66,50 @@ const displayDetails = (info) => {
         sensorsInfoParent.appendChild(small);
     }
     
+    // loading others information
     for(const prop in info.others){
-        toogleFunction('others-heading', 'block');
+        cssDisplayFunction('others-heading', 'block');
         const small = document.createElement('small');
         small.innerHTML = `
         <i class="fa-solid fa-angle-right me-1"></i>
         ${prop}: ${info.others[prop]}<br>`;
         othersInfoParent.appendChild(small);
     }
-
+    // checking release date availability
     if(info.releaseDate == ''){
-        toogleFunction('no-release-date', 'block');
+        cssDisplayFunction('no-release-date', 'block');
     }
     else{
-        toogleFunction('no-release-date', 'none');
+        cssDisplayFunction('no-release-date', 'none');
     }
-    toogleFunction('pop-up-section', 'block');
+    cssDisplayFunction('pop-up-section', 'block');
 }
 
+// details button function
 const detailsInfo = (id) => {
-    toogleFunction('spinner', 'block');
+    cssDisplayFunction('spinner', 'block');
+
+    // fetching all details for specific device
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
     .then(response => response.json())
     .then(data => displayDetails(data.data));
 }
 
-
+// search result display function
 const displayItem = (items) => {
-    toogleFunction('spinner', 'none');
+    cssDisplayFunction('spinner', 'none');
+
+    // checking if seach value is empty
     if(items.length === 0){
-        toogleFunction('no-result', 'block');
+        cssDisplayFunction('no-result', 'block');
     }
     else{
-        toogleFunction('no-result', 'none');
+        cssDisplayFunction('no-result', 'none');
         const parentDiv = document.getElementById('content-div');
         parentDiv.textContent = "";
         let phoneCount = 0;
+        // displaying 20 search result using loop
         items.forEach(item => {
             if(phoneCount < 20){
                 const div = document.createElement('div');
@@ -114,7 +121,7 @@ const displayItem = (items) => {
                             <h4 class="card-title">${item.phone_name}</h4>
                             <span class="mb-2">Brand: ${item.brand}</span>
                             <br>
-                            <button onclick="detailsInfo('${item.slug}')" data-toggle="modal" data-target="#myModal" class="mt-3 btn button">Details</button>                        
+                            <a onclick="detailsInfo('${item.slug}')" class="mt-3 btn button" href="#header">Details</a>
                         </div>
                     </div>
                 `;
@@ -126,17 +133,17 @@ const displayItem = (items) => {
             }
         });
     }
-    
-
 }
 
+// search button function
 const searchItem = () => {
-    toogleFunction('no-result', 'none');
-    toogleFunction('spinner', 'block');
+    cssDisplayFunction('no-result', 'none');
+    cssDisplayFunction('spinner', 'block');
     document.getElementById('details-div').textContent = '';
     document.getElementById('content-div').textContent = '';
-    toogleFunction('pop-up-section', 'none');
+    cssDisplayFunction('pop-up-section', 'none');
 
+    // receiving searchvalue and fetching data
     const searchText = document.getElementById('search-field').value;
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)

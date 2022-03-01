@@ -1,7 +1,8 @@
+/* google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 /* font-family: 'Poppins', sans-serif; */
 
-/* common css */
+/* --------- common css --------- */
 *{
     margin: 0;
     padding: 0;
@@ -19,13 +20,24 @@ h1{
     color: #00695c;
 }
 
-/* main css */
+/* --------- main css --------- */
+
+/* search section css */
 .search-section{
     background-color: #E4EFE7;
 }
+
+/* input-part css */
 .input-part{
     width: 25rem;
 }
+
+/* card css */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* button css */
 .button{
     color: #fff;
     background-color: #00695c;
@@ -35,11 +47,16 @@ h1{
     color: #00695c;
     border: 1px solid #00695c;
 }
+
+/* pop-up-section css */
 #pop-up-section{
     display: none;
 }
+
+/* details-div css */
 #details-div{
     background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* spinner css */
@@ -62,12 +79,14 @@ h1{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* no result div css */
 #no-result{
     display: none;
 }
 
 
-/* footer css */
+/* --------- footer css --------- */
 footer{
     background-color: #E4EFE7;
 }
