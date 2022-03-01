@@ -26,7 +26,7 @@ const displayDetails = (info) => {
             <img class="w-75" src="${info.image}" alt="">
         </div>
         <div class="col-md-8 col-sm-12">
-            <h2>${info.brand} ${info.name}</h2>
+            <h3>${info.brand} ${info.name}</h3>
             <small id="no-release-date">Release date not available</small>
             <small>${info.releaseDate}</small>
             <p class="fw-bold my-2">Main Feature:</p>
@@ -185,6 +185,5 @@ const searchItem = () => {
     fetch(url)
     .then(response => response.json())
     .then(data => displayItems(data.data));
-    document.getElementById('search-field').value = '';
-    
+    document.getElementById('search-field').value = '';   
 }
