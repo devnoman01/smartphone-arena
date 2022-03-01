@@ -56,7 +56,15 @@ h1{
 /* details-div css */
 #details-div{
     background-color: #fff;
-    
+    position: relative;
+}
+#close-details-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin: 0 auto;
+    width: 100px;
+    background-color: #ff4444;
 }
 
 /* spinner css */

@@ -1,8 +1,17 @@
+// funciton for changing css display value
 const cssDisplayFunction = (id, value) => {
     document.getElementById(id).style.display = value;
 }
 
+// hiding show all button
 window.onload = cssDisplayFunction('show-all-btn-div', 'none');
+
+// details part closing button function
+const closeDetailsDiv = () => {
+    const parentDiv = document.getElementById('details-div');
+    parentDiv.textContent = '';
+    cssDisplayFunction('pop-up-section', 'none');
+}
 
 // details display function
 const displayDetails = (info) => {
@@ -50,6 +59,7 @@ const displayDetails = (info) => {
                 </div>
             </div>
         </div>
+        <button id="close-details-btn" onclick="closeDetailsDiv()" class="btn btn-danger">Close</button>
     `;
     parentDiv.appendChild(div);
     
@@ -117,7 +127,7 @@ const displayItems = (items) => {
             const div = document.createElement('div');
             div.classList.add("col-lg-4", "col-md-6", "col-sm-12");
             div.innerHTML = `
-                    <div class="card p-3 rounded text-center">
+                    <div class="card p-3 rounded">
                         <img src="${item.image}" class="p-4 img-fluid rounded" alt="...">
                         <div class="card-body pt-3">
                             <h4 class="card-title">${item.phone_name}</h4>
