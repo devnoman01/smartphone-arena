@@ -101,3 +101,14 @@ h1{
 footer{
     background-color: #E4EFE7;
 }
+
+
+/* mobile & tab css for close button */
+@media screen and (max-width: 1024px) {
+    #close-details-btn{
+        position: relative;
+        right: auto;
+        margin: 0 auto;
+        bottom: 10px;
+    }
+}
