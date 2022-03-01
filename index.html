@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smartphone Arena</title>
 
+    <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Bootstrap CSS -->
@@ -21,7 +22,9 @@
     <header>
         <div class="text-center my-4">
             
-            <h1 class="fw-bold">Smartphone <i class="fa-solid fa-mobile-screen-button"></i> Arena</h1>
+            <a href="index.html" class="text-decoration-none">
+                <h1 class="fw-bold">Smartphone <i class="fa-solid fa-mobile-screen-button"></i> Arena</h1>
+            </a>
             <p class="fw-light fst-italic">Find your desired smartphone</p>
         </div>
     </header>
@@ -32,7 +35,7 @@
         <!-- search section start -->
         <section>
             <div class="container-fluid mb-4">            
-                <div class="row search-section px-2 py-5">
+                <div class="row search-section px-2 py-4">
                     <div class="input-group input-part mx-auto">
                         <input id="search-field" type="search" class="form-control rounded" placeholder="Search phone" aria-label="Search" aria-describedby="search-addon" />
                         <button onclick="searchItem()" id="search-button" type="button" class="btn button">search</button>
@@ -44,11 +47,19 @@
 
         <!-- onclick item details show section start -->
         <section class="px-3" id="pop-up-section">
-            <div id="details-div" class="container rounded">
+            <div id="details-div" class="container">
 
             </div>
         </section>
         <!-- onclick item details show section end -->
+
+        <!-- conditional divs start -->
+        <div id="spinner" class="mx-auto my-5"></div>
+        <div id="no-result" class="text-center text-danger">
+            <h1 class="mt-5 text-danger">No result found</h1>
+            <p>Search again with correct name</p>
+        </div>
+        <!-- conditional divs end -->
 
         <!-- search result show section start -->
         <section class="px-2">
@@ -64,10 +75,10 @@
     <!-- main end -->
 
     <!-- footer start -->
-    <footer>
+    <footer class="mt-auto fixed-bottom">
         <section class="px-2">
-            <div class="container py-4">
-                <div class="row py-2 text-center border border-danger">
+            <div class="container py-2">
+                <div class="row text-center">
                     <span>All Right Reserved. &copy; <a href="https://github.com/devnoman01" target="_blank" class="text-decoration-none link-success"><b>devnoman01</b></a></span>
                 </div>
             </div>
@@ -75,6 +86,7 @@
     </footer>
     <!-- footer end -->
     
+    <!-- Fontawesome JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" integrity="sha512-yFjZbTYRCJodnuyGlsKamNE/LlEaEAxSUDe5+u61mV8zzqJVFOH7TnULE2/PP/l5vKWpUNnF4VGVkXh3MjgLsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <!-- Bootstrap JS -->
