@@ -2,6 +2,8 @@ const cssDisplayFunction = (id, value) => {
     document.getElementById(id).style.display = value;
 }
 
+window.onload = cssDisplayFunction('show-all-btn-div', 'none');
+
 // details display function
 const displayDetails = (info) => {
     
@@ -97,7 +99,7 @@ const detailsInfo = (id) => {
 }
 
 // search result display function
-const displayItem = (items) => {
+const displayItems = (items) => {
     cssDisplayFunction('spinner', 'none');
 
     // checking if seach value is empty
@@ -109,15 +111,15 @@ const displayItem = (items) => {
         const parentDiv = document.getElementById('content-div');
         parentDiv.textContent = "";
         let phoneCount = 0;
-        // displaying 20 search result using loop
-        items.forEach(item => {
-            if(phoneCount < 20){
-                const div = document.createElement('div');
-                div.classList.add("col-xl-3", "col-lg-4", "col-md-6", "col-sm-12");
-                div.innerHTML = `
-                    <div class="card p-3 rounded">
+
+        // search result display function
+        const displayEachDevice = (item) => {
+            const div = document.createElement('div');
+            div.classList.add("col-lg-4", "col-md-6", "col-sm-12");
+            div.innerHTML = `
+                    <div class="card p-3 rounded text-center">
                         <img src="${item.image}" class="p-4 img-fluid rounded" alt="...">
-                        <div class="pt-3">
+                        <div class="card-body pt-3">
                             <h4 class="card-title">${item.phone_name}</h4>
                             <span class="mb-2">Brand: ${item.brand}</span>
                             <br>
@@ -126,14 +128,37 @@ const displayItem = (items) => {
                     </div>
                 `;
                 parentDiv.appendChild(div);
+        }
+
+        // loop for displaying max 20 search result
+        items.forEach(item => {
+            if(phoneCount < 20){
+                displayEachDevice(item);
                 phoneCount++;
             }
             else{
                 return;
             }
+
+            if(phoneCount >= 20){
+                cssDisplayFunction('show-all-btn-div', 'block');
+            }
+        });
+
+        // show all button function
+        document.getElementById('show-all-btn').addEventListener('click', function(){
+
+            const parentDiv = document.getElementById('content-div');
+            parentDiv.textContent = "";
+            // loop for displaying all search result
+            items.forEach(item => {
+                displayEachDevice(item);
+            });
+            cssDisplayFunction('show-all-btn-div', 'none');
         });
     }
 }
+
 
 // search button function
 const searchItem = () => {
@@ -142,13 +167,14 @@ const searchItem = () => {
     document.getElementById('details-div').textContent = '';
     document.getElementById('content-div').textContent = '';
     cssDisplayFunction('pop-up-section', 'none');
+    cssDisplayFunction('show-all-btn-div', 'none');
 
     // receiving searchvalue and fetching data
     const searchText = document.getElementById('search-field').value;
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
     .then(response => response.json())
-    .then(data => displayItem(data.data));
+    .then(data => displayItems(data.data));
     document.getElementById('search-field').value = '';
     
 }
